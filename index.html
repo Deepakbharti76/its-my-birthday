@@ -447,7 +447,7 @@
           inset 8px 8px 12px rgba(255, 255, 255, 0.25),
           0 5px 15px rgba(0, 0, 0, 0.2);
 
-        animation: floatBalloon linear forwards;
+        animation: floatBalloon linear;
       }
 
       /* Balloon shine */
@@ -472,17 +472,12 @@
       /* Balloon string */
       .balloon::after {
         content: "";
-
         position: absolute;
-
         width: 2px;
-        height: 70px;
-
+        height: 35px;
         background: rgba(255, 255, 255, 0.5);
-
         left: 50%;
-        top: 70px;
-
+        top: 100%;
         transform: translateX(-50%);
       }
 
@@ -492,12 +487,8 @@
           transform: translateY(0) translateX(0) rotate(-5deg);
         }
 
-        50% {
-          transform: translateY(-50vh) translateX(15px) rotate(5deg);
-        }
-
         100% {
-          transform: translateY(-150vh) translateX(-10px) rotate(-5deg);
+          transform: translateY(-130vh) translateX(10px) rotate(5deg);
         }
       }
       /* music button */
