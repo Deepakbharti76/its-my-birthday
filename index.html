@@ -17,7 +17,7 @@
         min-height: 100vh;
         overflow-x: hidden;
         font-family: Arial, sans-serif;
-        color: white;
+        color: rgb(255, 255, 255);
 
         background:
           radial-gradient(
@@ -134,10 +134,8 @@
       .date {
         text-align: center;
 
-        color: #ffd65a;
-
+        color: #00f5d4;
         font-size: 25px;
-
         font-weight: bold;
       }
 
@@ -170,15 +168,15 @@
 
         border-radius: 18px;
 
-        background: rgba(255, 255, 255, 0.08);
+        background: linear-gradient(135deg, #16b0ad25, #2563eb);
 
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(199, 10, 10, 0.1);
       }
 
       .time-box span {
         display: block;
 
-        color: #ffd65a;
+        color: #ffffff;
 
         font-size: 27px;
 
@@ -209,8 +207,9 @@
       /* ================= SURPRISE ================= */
 
       .surprise-box {
-        text-align: center;
-        margin-top: 25px;
+        display: flex;
+        justify-content: center;
+        margin: 5px 0 10px;
       }
 
       #surpriseBtn {
@@ -218,7 +217,7 @@
         padding: 16px 28px;
         border-radius: 30px;
         font-size: 17px;
-        background: linear-gradient(135deg, #ffb703, #ff4d6d);
+        background: linear-gradient(135deg, #7c3aed, #ec4899);
       }
 
       .surprise-popup {
@@ -668,10 +667,6 @@
         <div class="date">01 October 2026 🎊</div>
       </section>
 
-      <div class="surprise-box">
-        <button id="surpriseBtn" type="button">🎁 Click for a Surprise</button>
-      </div>
-
       <div class="surprise-popup" id="surprisePopup">
         <div class="surprise-content">
           <span class="close" id="closeSurprise">×</span>
@@ -744,6 +739,14 @@
             required
           ></textarea>
 
+          <!-- Surprise Button -->
+          <div class="surprise-box">
+            <button id="surpriseBtn" type="button">
+              🎁 Click for a Surprise
+            </button>
+          </div>
+
+          <!-- Send Wish Button -->
           <button type="submit">🎉 Send Birthday Wish</button>
         </form>
 
