@@ -1,750 +1,973 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>It's My Birthday! 🎉🎂</title>
+  <title>It's My Birthday! 🎉🎂</title>
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+      color: rgb(255, 255, 255);
+
+      background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(255, 60, 110, 0.18),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 80% 10%,
+          rgba(255, 210, 80, 0.12),
+          transparent 25%
+        ),
+        #111b2c;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+      margin: auto;
+      padding: 35px 18px 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .profile-box {
+      width: 135px;
+      height: 135px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      padding: 5px;
+      border: 3px solid #ffd65a;
+
+      box-shadow:
+        0 0 25px rgba(255, 214, 90, 0.6),
+        0 0 60px rgba(255, 65, 108, 0.3);
+
+      animation: glow 2s infinite;
+    }
+
+    .profile-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
+
+    @keyframes glow {
+      0%,
+      100% {
+        box-shadow:
+          0 0 20px rgba(255, 214, 90, 0.4),
+          0 0 50px rgba(255, 65, 108, 0.2);
       }
 
-      body {
-        min-height: 100vh;
-        overflow-x: hidden;
-        font-family: Arial, sans-serif;
-        color: rgb(255, 255, 255);
-
-        background:
-          radial-gradient(
-            circle at 20% 20%,
-            rgba(255, 60, 110, 0.18),
-            transparent 25%
-          ),
-          radial-gradient(
-            circle at 80% 10%,
-            rgba(255, 210, 80, 0.12),
-            transparent 25%
-          ),
-          #111b2c;
+      50% {
+        box-shadow:
+          0 0 35px rgba(255, 214, 90, 0.8),
+          0 0 75px rgba(255, 65, 108, 0.4);
       }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 50px;
+      line-height: 1.15;
+      margin-bottom: 12px;
+
+      background: linear-gradient(
+        90deg,
+        #ffb703,
+        #ffd60a,
+        #ffffff,
+        #ff4d8d,
+        #ffd60a,
+        #ffb703
+      );
+
+      background-size: 300% auto;
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      animation: textGlow 4s linear infinite;
+
+      filter: drop-shadow(0 0 12px rgba(255, 190, 50, 0.35));
+    }
+
+    @keyframes textGlow {
+      0% {
+        background-position: 0% center;
+      }
+
+      100% {
+        background-position: 300% center;
+      }
+    }
+
+    .date {
+      text-align: center;
+      color: #00f5d4;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    /* ================= COUNTDOWN ================= */
+
+    .countdown-title {
+      text-align: center;
+      color: #c5ccda;
+      font-size: 15px;
+      margin: 25px 0 12px;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .time-box {
+      text-align: center;
+      padding: 15px 5px;
+      border-radius: 18px;
+
+      background: linear-gradient(
+        135deg,
+        #16b0ad25,
+        #2563eb
+      );
+
+      border: 1px solid rgba(199, 10, 10, 0.1);
+    }
+
+    .time-box span {
+      display: block;
+      color: #ffffff;
+      font-size: 27px;
+      font-weight: bold;
+    }
+
+    .time-box small {
+      color: #cbd3df;
+      font-size: 10px;
+    }
+
+    /* ================= MUSIC ================= */
+
+    .music-box {
+      display: flex;
+      justify-content: center;
+      margin: 15px 0 25px;
+    }
+
+    #musicBtn {
+      width: auto;
+      min-width: 220px;
+      padding: 14px 22px;
+
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+
+      background: linear-gradient(
+        135deg,
+        #7b2ff7,
+        #f107a3
+      );
+
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+
+      box-shadow:
+        0 8px 25px rgba(123, 47, 247, 0.35);
+
+      transition: 0.3s;
+    }
+
+    #musicBtn:hover {
+      transform: translateY(-3px);
+    }
+
+    #musicBtn:active {
+      transform: scale(0.96);
+    }
+
+    /* ================= SURPRISE ================= */
+
+    .surprise-box {
+      display: flex;
+      justify-content: center;
+      margin: 5px 0 10px;
+    }
+
+    #surpriseBtn {
+      width: auto;
+      padding: 16px 28px;
+      border-radius: 30px;
+      font-size: 17px;
+
+      background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #ec4899
+      );
+    }
+
+    .surprise-popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+
+      background: rgba(0, 0, 0, 0.78);
+
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .surprise-content {
+      position: relative;
+      width: 100%;
+      max-width: 450px;
+      padding: 45px 25px;
+
+      text-align: center;
+
+      border-radius: 30px;
+
+      background: linear-gradient(
+        135deg,
+        #1d2b45,
+        #402b55
+      );
+
+      border: 2px solid #ffd65a;
+
+      box-shadow:
+        0 0 50px rgba(255, 214, 90, 0.4);
+
+      animation: popup 0.4s ease;
+    }
+
+    @keyframes popup {
+      from {
+        transform: scale(0.6);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .surprise-cake {
+      font-size: 75px;
+      margin-bottom: 15px;
+    }
+
+    .surprise-cake img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 15px;
+    }
+
+    .surprise-content h2 {
+      font-size: 32px;
+      color: #ffd65a;
+      margin-bottom: 18px;
+    }
+
+    .surprise-content p {
+      font-size: 17px;
+      line-height: 1.6;
+      color: white;
+    }
+
+    .close {
+      position: absolute;
+      top: 8px;
+      right: 18px;
+      font-size: 35px;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* ================= CARD ================= */
+
+    .card {
+      padding: 32px 24px;
+      border-radius: 30px;
+
+      background: rgba(255, 255, 255, 0.11);
+
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h2 {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+
+      border: none;
+      outline: none;
+
+      border-radius: 17px;
+
+      padding: 18px;
+
+      margin-bottom: 17px;
+
+      font-size: 17px;
+
+      font-family: Arial, sans-serif;
+
+      background: white;
+      color: #222;
+    }
+
+    input {
+      height: 65px;
+    }
+
+    textarea {
+      height: 145px;
+      resize: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      box-shadow:
+        0 0 0 3px rgba(255, 65, 108, 0.3);
+    }
+
+    /* ================= BUTTON ================= */
+
+    button {
+      width: 100%;
+
+      border: none;
+      border-radius: 17px;
+
+      padding: 18px;
+
+      color: white;
+
+      font-size: 19px;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      background: linear-gradient(
+        135deg,
+        #ff416c,
+        #ff4b2b
+      );
+
+      box-shadow:
+        0 10px 25px rgba(255, 65, 108, 0.35);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    /* ================= SUCCESS ================= */
+
+    .success {
+      display: none;
+
+      margin-top: 17px;
+
+      padding: 14px;
+
+      text-align: center;
+
+      border-radius: 13px;
+
+      background: rgba(35, 130, 85, 0.8);
+
+      font-size: 15px;
+    }
+
+    /* ================= CONFETTI ================= */
+
+    .confetti {
+      position: fixed;
+      top: -30px;
+
+      z-index: 1;
+
+      pointer-events: none;
+
+      font-size: 20px;
+
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      from {
+        transform:
+          translateY(-30px)
+          rotate(0deg);
+      }
+
+      to {
+        transform:
+          translateY(110vh)
+          rotate(720deg);
+      }
+    }
+
+    /* ================= FLOATING BALLOONS ================= */
+
+    body {
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .balloon {
+      position: fixed;
+
+      bottom: -130px;
+
+      width: 60px;
+      height: 75px;
+
+      border-radius: 50% 50% 48% 48%;
+
+      z-index: 1;
+      pointer-events: none;
+
+      opacity: 0.65;
+
+      box-shadow:
+        inset -8px -8px 15px rgba(0, 0, 0, 0.15),
+        inset 8px 8px 12px rgba(255, 255, 255, 0.25),
+        0 5px 15px rgba(0, 0, 0, 0.2);
+
+      animation: floatBalloon linear;
+    }
+
+    .balloon::before {
+      content: "";
+
+      position: absolute;
+
+      width: 12px;
+      height: 22px;
+
+      top: 12px;
+      left: 12px;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.45);
+
+      transform: rotate(25deg);
+    }
+
+    .balloon::after {
+      content: "";
+
+      position: absolute;
+
+      width: 2px;
+      height: 35px;
+
+      background: rgba(255, 255, 255, 0.5);
+
+      left: 50%;
+      top: 100%;
+
+      transform: translateX(-50%);
+    }
+
+    @keyframes floatBalloon {
+      0% {
+        transform:
+          translateY(0)
+          translateX(0)
+          rotate(-5deg);
+      }
+
+      100% {
+        transform:
+          translateY(-130vh)
+          translateX(10px)
+          rotate(5deg);
+      }
+    }
+
+    /* ================= TITLE IMAGES ================= */
+
+    .title-icon,
+    .title-cake {
+      width: 60px;
+      height: 60px;
+
+      object-fit: contain;
+      vertical-align: middle;
+    }
+
+    .title-icon {
+      margin-right: 10px;
+    }
+
+    .title-cake {
+      margin-left: 10px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    .footer {
+      text-align: center;
+
+      color: #8994a6;
+
+      margin-top: 25px;
+
+      font-size: 14px;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 600px) {
 
       .container {
-        width: 100%;
-        max-width: 650px;
-        margin: auto;
-        padding: 35px 18px 60px;
+        padding: 8px 10px 20px;
       }
 
-      /* ================= HERO ================= */
-
       .hero {
-        text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 8px;
       }
 
       .profile-box {
-        width: 135px;
-        height: 135px;
-        margin: 0 auto 20px;
-        border-radius: 50%;
-        padding: 5px;
-        border: 3px solid #ffd65a;
-        box-shadow:
-          0 0 25px rgba(255, 214, 90, 0.6),
-          0 0 60px rgba(255, 65, 108, 0.3);
-        animation: glow 2s infinite;
-      }
-
-      .profile-box img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-        display: block;
-      }
-
-      @keyframes bounce {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-
-      @keyframes glow {
-        0%,
-        100% {
-          box-shadow:
-            0 0 20px rgba(255, 214, 90, 0.4),
-            0 0 50px rgba(255, 65, 108, 0.2);
-        }
-
-        50% {
-          box-shadow:
-            0 0 35px rgba(255, 214, 90, 0.8),
-            0 0 75px rgba(255, 65, 108, 0.4);
-        }
+        width: 95px;
+        height: 95px;
+        margin-bottom: 8px;
+        padding: 4px;
       }
 
       h1 {
-        text-align: center;
-        font-size: 50px;
-        line-height: 1.15;
-        margin-bottom: 12px;
-
-        background: linear-gradient(
-          90deg,
-          #ffb703,
-          #ffd60a,
-          #ffffff,
-          #ff4d8d,
-          #ffd60a,
-          #ffb703
-        );
-
-        background-size: 300% auto;
-
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-
-        animation: textGlow 4s linear infinite;
-
-        filter: drop-shadow(0 0 12px rgba(255, 190, 50, 0.35));
-      }
-
-      @keyframes textGlow {
-        0% {
-          background-position: 0% center;
-        }
-
-        100% {
-          background-position: 300% center;
-        }
-      }
-
-      .date {
-        text-align: center;
-        color: #00f5d4;
-        font-size: 25px;
-        font-weight: bold;
-      }
-
-      /* ================= COUNTDOWN ================= */
-
-      .countdown-title {
-        text-align: center;
-        color: #c5ccda;
-        font-size: 15px;
-        margin: 25px 0 12px;
-      }
-
-      .countdown {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-        margin-bottom: 30px;
-      }
-
-      .time-box {
-        text-align: center;
-        padding: 15px 5px;
-        border-radius: 18px;
-        background: linear-gradient(135deg, #16b0ad25, #2563eb);
-        border: 1px solid rgba(199, 10, 10, 0.1);
-      }
-
-      .time-box span {
-        display: block;
-        color: #ffffff;
-        font-size: 27px;
-        font-weight: bold;
-      }
-
-      .time-box small {
-        color: #cbd3df;
-        font-size: 10px;
-      }
-
-      /* ================= MUSIC ================= */
-
-      .music-box {
-        display: flex;
-        justify-content: center;
-        margin: 15px 0 25px;
-      }
-
-      #musicBtn {
-        width: auto;
-        min-width: 220px;
-        padding: 14px 22px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 50px;
-
-        background: linear-gradient(135deg, #7b2ff7, #f107a3);
-
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-
-        box-shadow: 0 8px 25px rgba(123, 47, 247, 0.35);
-
-        transition: 0.3s;
-      }
-
-      #musicBtn:hover {
-        transform: translateY(-3px);
-      }
-
-      #musicBtn:active {
-        transform: scale(0.96);
-      }
-
-      /* ================= SURPRISE ================= */
-
-      .surprise-box {
-        display: flex;
-        justify-content: center;
-        margin: 5px 0 10px;
-      }
-
-      #surpriseBtn {
-        width: auto;
-        padding: 16px 28px;
-        border-radius: 30px;
-        font-size: 17px;
-        background: linear-gradient(135deg, #7c3aed, #ec4899);
-      }
-
-      .surprise-popup {
-        display: none;
-        position: fixed;
-        inset: 0;
-        z-index: 1000;
-        background: rgba(0, 0, 0, 0.78);
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-      }
-
-      .surprise-content {
-        position: relative;
-        width: 100%;
-        max-width: 450px;
-        padding: 45px 25px;
-        text-align: center;
-        border-radius: 30px;
-        background: linear-gradient(135deg, #1d2b45, #402b55);
-        border: 2px solid #ffd65a;
-        box-shadow: 0 0 50px rgba(255, 214, 90, 0.4);
-        animation: popup 0.4s ease;
-      }
-
-      @keyframes popup {
-        from {
-          transform: scale(0.6);
-          opacity: 0;
-        }
-
-        to {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-
-      .surprise-cake {
-        font-size: 75px;
-        margin-bottom: 15px;
-      }
-
-      .surprise-content h2 {
-        font-size: 32px;
-        color: #ffd65a;
-        margin-bottom: 18px;
-      }
-
-      .surprise-content p {
-        font-size: 17px;
-        line-height: 1.6;
-        color: white;
-      }
-
-      .close {
-        position: absolute;
-        top: 8px;
-        right: 18px;
-        font-size: 35px;
-        cursor: pointer;
-        color: white;
-      }
-
-      /* ================= CARD ================= */
-
-      .card {
-        padding: 32px 24px;
-        border-radius: 30px;
-        background: rgba(255, 255, 255, 0.11);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-      }
-
-      .card h2 {
-        text-align: center;
-        font-size: 30px;
-        margin-bottom: 25px;
-      }
-
-      input,
-      textarea {
-        width: 100%;
-        border: none;
-        outline: none;
-        border-radius: 17px;
-        padding: 18px;
-        margin-bottom: 17px;
-        font-size: 17px;
-        font-family: Arial, sans-serif;
-        background: white;
-        color: #222;
-      }
-
-      input {
-        height: 65px;
-      }
-
-      textarea {
-        height: 145px;
-        resize: none;
-      }
-
-      input:focus,
-      textarea:focus {
-        box-shadow: 0 0 0 3px rgba(255, 65, 108, 0.3);
-      }
-
-      /* ================= BUTTON ================= */
-
-      button {
-        width: 100%;
-        border: none;
-        border-radius: 17px;
-        padding: 18px;
-        color: white;
-        font-size: 19px;
-        font-weight: bold;
-        cursor: pointer;
-        background: linear-gradient(135deg, #ff416c, #ff4b2b);
-        box-shadow: 0 10px 25px rgba(255, 65, 108, 0.35);
-      }
-
-      button:active {
-        transform: scale(0.98);
-      }
-
-      /* ================= SUCCESS ================= */
-
-      .success {
-        display: none;
-        margin-top: 17px;
-        padding: 14px;
-        text-align: center;
-        border-radius: 13px;
-        background: rgba(35, 130, 85, 0.8);
-        font-size: 15px;
-      }
-
-      /* ================= CONFETTI ================= */
-
-      .confetti {
-        position: fixed;
-        top: -30px;
-        z-index: 1;
-        pointer-events: none;
-        font-size: 20px;
-        animation: fall linear forwards;
-      }
-
-      @keyframes fall {
-        from {
-          transform: translateY(-30px) rotate(0deg);
-        }
-
-        to {
-          transform: translateY(110vh) rotate(720deg);
-        }
-      }
-
-      /* ================= FLOATING BALLOONS ================= */
-
-      body {
-        position: relative;
-        overflow-x: hidden;
-      }
-
-      .container {
-        position: relative;
-        z-index: 2;
-      }
-
-      .balloon {
-        position: fixed;
-        bottom: -130px;
-
-        width: 60px;
-        height: 75px;
-
-        border-radius: 50% 50% 48% 48%;
-
-        z-index: 1;
-        pointer-events: none;
-        opacity: 0.65;
-
-        box-shadow:
-          inset -8px -8px 15px rgba(0, 0, 0, 0.15),
-          inset 8px 8px 12px rgba(255, 255, 255, 0.25),
-          0 5px 15px rgba(0, 0, 0, 0.2);
-
-        animation: floatBalloon linear;
-      }
-
-      .balloon::before {
-        content: "";
-
-        position: absolute;
-
-        width: 12px;
-        height: 22px;
-
-        top: 12px;
-        left: 12px;
-
-        border-radius: 50%;
-
-        background: rgba(255, 255, 255, 0.45);
-
-        transform: rotate(25deg);
-      }
-
-      .balloon::after {
-        content: "";
-        position: absolute;
-        width: 2px;
-        height: 35px;
-        background: rgba(255, 255, 255, 0.5);
-        left: 50%;
-        top: 100%;
-        transform: translateX(-50%);
-      }
-
-      @keyframes floatBalloon {
-        0% {
-          transform: translateY(0) translateX(0) rotate(-5deg);
-        }
-
-        100% {
-          transform: translateY(-130vh) translateX(10px) rotate(5deg);
-        }
-      }
-
-      /* ================= TITLE IMAGES ================= */
-
-      .surprise-cake img {
-        width: 100px;
-        height: 100px;
-        object-fit: contain;
-        display: block;
-        margin: 0 auto 15px;
+        font-size: 28px;
+        line-height: 1.1;
+        margin-bottom: 5px;
       }
 
       .title-icon,
       .title-cake {
-        width: 60px;
-        height: 60px;
-        object-fit: contain;
-        vertical-align: middle;
+        width: 45px;
+        height: 45px;
       }
 
       .title-icon {
-        margin-right: 10px;
+        margin-right: 4px;
       }
 
       .title-cake {
-        margin-left: 10px;
+        margin-left: 4px;
       }
 
-      /* ================= FOOTER ================= */
+      .date {
+        font-size: 18px;
+      }
 
-      .footer {
-        text-align: center;
-        color: #8994a6;
-        margin-top: 25px;
+      .countdown-title {
+        font-size: 13px;
+        margin: 7px 0;
+      }
+
+      .countdown {
+        gap: 5px;
+        margin-bottom: 8px;
+      }
+
+      .time-box {
+        padding: 7px 2px;
+        border-radius: 12px;
+      }
+
+      .time-box span {
+        font-size: 17px;
+      }
+
+      .time-box small {
+        font-size: 8px;
+      }
+
+      .music-box {
+        margin: 7px 0 10px;
+      }
+
+      #musicBtn {
+        min-width: 180px;
+        padding: 10px 15px;
         font-size: 14px;
       }
 
-      /* ================= MOBILE ================= */
-
-      @media (max-width: 600px) {
-        .container {
-          padding: 15px 12px 30px;
-        }
-
-        .hero {
-          margin-bottom: 15px;
-        }
-
-        .cake-box {
-          width: 90px;
-          height: 90px;
-          margin-bottom: 10px;
-        }
-
-        .cake {
-          font-size: 50px;
-        }
-
-        h1 {
-          font-size: 32px;
-          margin-bottom: 6px;
-        }
-
-        .date {
-          font-size: 19px;
-        }
-
-        .countdown-title {
-          margin: 8px 0;
-        }
-
-        .countdown {
-          margin-bottom: 15px;
-        }
-
-        .time-box {
-          padding: 10px 3px;
-        }
-
-        .time-box span {
-          font-size: 20px;
-        }
-
-        .music-box {
-          margin: 10px 0 15px;
-        }
-
-        #musicBtn {
-          padding: 11px 18px;
-          min-width: 190px;
-          font-size: 15px;
-        }
-
-        .card {
-          padding: 20px 15px;
-          border-radius: 22px;
-        }
-
-        .card h2 {
-          font-size: 21px;
-          margin-bottom: 15px;
-        }
-
-        input {
-          height: 52px;
-        }
-
-        textarea {
-          height: 100px;
-        }
-
-        input,
-        textarea {
-          padding: 14px;
-          margin-bottom: 10px;
-          font-size: 15px;
-        }
-
-        button {
-          padding: 14px;
-          font-size: 16px;
-        }
+      .card {
+        padding: 15px 12px;
+        border-radius: 20px;
       }
-    </style>
-  </head>
 
-  <body>
-    <main class="container">
+      .card h2 {
+        font-size: 20px;
+        margin-bottom: 12px;
+      }
 
-      <!-- ================= HERO ================= -->
+      input,
+      textarea {
+        padding: 12px;
+        margin-bottom: 8px;
+        font-size: 14px;
+        border-radius: 14px;
+      }
 
-      <section class="hero">
-        <div class="profile-box">
-          <img src="./images/Deepak Dp.jpeg" alt="Deepak" />
-        </div>
+      input {
+        height: 48px;
+      }
 
-        <h1>
-          <img src="./images/party.png" alt="Party" class="title-icon" />
-          It's My Birthday!
+      textarea {
+        height: 85px;
+      }
+
+      .surprise-box {
+        margin: 4px 0 7px;
+      }
+
+      #surpriseBtn {
+        padding: 11px 15px;
+        font-size: 14px;
+      }
+
+      button {
+        padding: 11px;
+        font-size: 15px;
+        border-radius: 14px;
+      }
+
+      .footer {
+        margin-top: 12px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+      <div class="profile-box">
+        <img
+          src="./images/Deepak Dp.jpeg"
+          alt="Deepak"
+        />
+      </div>
+
+      <h1>
+        <img
+          src="./images/party.png"
+          alt="Party"
+          class="title-icon"
+        />
+
+        It's My Birthday!
+
+        <img
+          src="./images/cake.png"
+          alt="Birthday Cake"
+          class="title-cake"
+        />
+      </h1>
+
+      <div class="date">
+        01 October 2026 🎊
+      </div>
+
+    </section>
+
+
+    <!-- ================= SURPRISE POPUP ================= -->
+
+    <div
+      class="surprise-popup"
+      id="surprisePopup"
+    >
+
+      <div class="surprise-content">
+
+        <span
+          class="close"
+          id="closeSurprise"
+        >
+          ×
+        </span>
+
+        <div class="surprise-cake">
+
           <img
             src="./images/cake.png"
             alt="Birthday Cake"
-            class="title-cake"
           />
-        </h1>
-
-        <div class="date">01 October 2026 🎊</div>
-      </section>
-
-      <!-- ================= SURPRISE POPUP ================= -->
-
-      <div class="surprise-popup" id="surprisePopup">
-        <div class="surprise-content">
-
-          <span class="close" id="closeSurprise">×</span>
-
-          <div class="surprise-cake">
-            <img src="./images/cake.png" alt="Birthday Cake" />
-          </div>
-
-          <h2>Surprise!</h2>
-
-          <p>
-            Yay! It's my special day! 🥳🎂
-            <br /><br />
-            Thank you for being here and making my birthday even more special!
-            ❤️✨
-          </p>
 
         </div>
-      </div>
 
-      <!-- ================= COUNTDOWN ================= -->
+        <h2>
+          Surprise!
+        </h2>
 
-      <div class="countdown-title">Birthday Countdown ⏳</div>
+        <p>
 
-      <div class="countdown">
+          Yay! It's my special day! 🥳🎂
 
-        <div class="time-box">
-          <span id="days">00</span>
-          <small>DAYS</small>
-        </div>
+          <br /><br />
 
-        <div class="time-box">
-          <span id="hours">00</span>
-          <small>HOURS</small>
-        </div>
+          Thank you for being here and making my birthday even more special!
+          ❤️✨
 
-        <div class="time-box">
-          <span id="minutes">00</span>
-          <small>MINUTES</small>
-        </div>
-
-        <div class="time-box">
-          <span id="seconds">00</span>
-          <small>SECONDS</small>
-        </div>
+        </p>
 
       </div>
 
-      <!-- ================= MUSIC ================= -->
+    </div>
 
-      <div class="music-box">
 
-        <button id="musicBtn" type="button">
-          🎵 Play Birthday Music
-        </button>
+    <!-- ================= COUNTDOWN ================= -->
 
-        <audio id="birthdayMusic" loop playsinline>
-          <source
-            src="./birthday song/Birthday.mp3"
-            type="audio/mpeg"
-          />
-        </audio>
+    <div class="countdown-title">
+      Birthday Countdown ⏳
+    </div>
+
+    <div class="countdown">
+
+      <div class="time-box">
+
+        <span id="days">
+          00
+        </span>
+
+        <small>
+          DAYS
+        </small>
 
       </div>
 
-      <!-- ================= WISH FORM ================= -->
 
-      <section class="card">
+      <div class="time-box">
 
-        <h2>💌 Send Me a Birthday Wish</h2>
+        <span id="hours">
+          00
+        </span>
 
-        <form id="birthdayForm">
+        <small>
+          HOURS
+        </small>
 
-          <input
-            type="text"
-            id="name"
-            placeholder="Your Name (अपना नाम लिखें)"
-            required
-          />
+      </div>
 
-          <textarea
-            id="message"
-            placeholder="Write your birthday wish... (अपनी शुभकामना लिखें ❤️)"
-            required
-          ></textarea>
 
-          <!-- Surprise Button -->
+      <div class="time-box">
 
-          <div class="surprise-box">
+        <span id="minutes">
+          00
+        </span>
 
-            <button id="surpriseBtn" type="button">
-              🎁 Click for a Surprise
-            </button>
+        <small>
+          MINUTES
+        </small>
 
-          </div>
+      </div>
 
-          <!-- Send Wish Button -->
 
-          <button type="submit">
-            🎉 Send Birthday Wish
+      <div class="time-box">
+
+        <span id="seconds">
+          00
+        </span>
+
+        <small>
+          SECONDS
+        </small>
+
+      </div>
+
+    </div>
+
+
+    <!-- ================= MUSIC ================= -->
+
+    <div class="music-box">
+
+      <button
+        id="musicBtn"
+        type="button"
+      >
+        🎵 Play Birthday Music
+      </button>
+
+      <audio
+        id="birthdayMusic"
+        loop
+        playsinline
+      >
+
+        <source
+          src="./birthday%20song/Birthday.mp3"
+          type="audio/mpeg"
+        />
+
+      </audio>
+
+    </div>
+
+
+    <!-- ================= WISH FORM ================= -->
+
+    <section class="card">
+
+      <h2>
+        💌 Send Me a Birthday Wish
+      </h2>
+
+
+      <form id="birthdayForm">
+
+        <input
+          type="text"
+          id="name"
+          placeholder="Your Name (अपना नाम लिखें)"
+          required
+        />
+
+
+        <textarea
+          id="message"
+          placeholder="Write your birthday wish... (अपनी शुभकामना लिखें ❤️)"
+          required
+        ></textarea>
+
+
+        <!-- Surprise Button -->
+
+        <div class="surprise-box">
+
+          <button
+            id="surpriseBtn"
+            type="button"
+          >
+            🎁 Click for a Surprise
           </button>
 
-        </form>
-
-        <div class="success" id="success">
-          ❤️ Opening WhatsApp...
         </div>
 
-      </section>
 
-      <div class="footer">
-        Made with ❤️ by Deepak
+        <!-- Send Wish Button -->
+
+        <button type="submit">
+          🎉 Send Birthday Wish
+        </button>
+
+      </form>
+
+
+      <div
+        class="success"
+        id="success"
+      >
+        ❤️ Opening WhatsApp...
       </div>
 
-    </main>
+    </section>
 
-    <script>
 
-      /* =====================================
-         WHATSAPP
-      ===================================== */
+    <div class="footer">
+      Made with ❤️ by Deepak
+    </div>
 
-      var whatsappNumber = "917644832949";
+  </main>
 
-      var form = document.getElementById("birthdayForm");
 
-      form.addEventListener("submit", function (event) {
+  <script>
+
+    /* =====================================
+       WHATSAPP
+    ===================================== */
+
+    var whatsappNumber = "917644832949";
+
+    var form =
+      document.getElementById("birthdayForm");
+
+
+    form.addEventListener(
+      "submit",
+      function (event) {
 
         event.preventDefault();
 
-        var name = document.getElementById("name").value.trim();
 
-        var message = document.getElementById("message").value.trim();
+        var name =
+          document.getElementById("name")
+          .value
+          .trim();
 
-        if (name === "" || message === "") {
 
-          alert("Please enter your name and message.");
+        var message =
+          document.getElementById("message")
+          .value
+          .trim();
+
+
+        if (
+          name === "" ||
+          message === ""
+        ) {
+
+          alert(
+            "Please enter your name and message."
+          );
 
           return;
-
         }
+
 
         var text =
           "🎂 Birthday Wish for Deepak\n\n" +
@@ -756,326 +979,454 @@
           "\n\n" +
           "🎉 Thank you for making my birthday special! ❤️";
 
+
         var whatsappURL =
           "https://wa.me/" +
           whatsappNumber +
           "?text=" +
           encodeURIComponent(text);
 
-        document.getElementById("success").style.display = "block";
 
-        setTimeout(function () {
-
-          window.location.href = whatsappURL;
-
-        }, 500);
-
-      });
+        document.getElementById(
+          "success"
+        ).style.display = "block";
 
 
-      /* ================= FLOATING BALLOONS ================= */
+        setTimeout(
+          function () {
 
-      var balloonColors = [
-        "#ff416c",
-        "#ffd65a",
-        "#7b2ff7",
-        "#00c9a7",
-        "#ff7eb3"
-      ];
+            window.location.href =
+              whatsappURL;
 
-      function createBalloon() {
+          },
+          500
+        );
 
-        var balloon = document.createElement("div");
+      }
+    );
 
-        balloon.className = "balloon";
 
-        balloon.style.left = Math.random() * 90 + "vw";
+    /* ================= FLOATING BALLOONS ================= */
 
-        balloon.style.background =
-          balloonColors[
-            Math.floor(Math.random() * balloonColors.length)
-          ];
+    var balloonColors = [
 
-        balloon.style.animationDuration =
-          8 + Math.random() * 6 + "s";
+      "#ff416c",
+      "#ffd65a",
+      "#7b2ff7",
+      "#00c9a7",
+      "#ff7eb3"
 
-        document.body.appendChild(balloon);
+    ];
 
-        setTimeout(function () {
+
+    function createBalloon() {
+
+      var balloon =
+        document.createElement("div");
+
+
+      balloon.className =
+        "balloon";
+
+
+      balloon.style.left =
+        Math.random() * 90 + "vw";
+
+
+      balloon.style.background =
+        balloonColors[
+          Math.floor(
+            Math.random() *
+            balloonColors.length
+          )
+        ];
+
+
+      balloon.style.animationDuration =
+        8 + Math.random() * 6 + "s";
+
+
+      document.body.appendChild(
+        balloon
+      );
+
+
+      setTimeout(
+        function () {
 
           balloon.remove();
 
-        }, 15000);
+        },
+        15000
+      );
 
-      }
+    }
 
-      createBalloon();
 
-      setTimeout(function () {
+    createBalloon();
+
+
+    setTimeout(
+      function () {
 
         createBalloon();
 
-      }, 800);
+      },
+      800
+    );
 
-      setInterval(createBalloon, 1800);
+
+    setInterval(
+      createBalloon,
+      1800
+    );
 
 
-      /* =====================================
-         MUSIC
-      ===================================== */
+    /* =====================================
+       MUSIC
+    ===================================== */
 
-      var music = document.getElementById("birthdayMusic");
+    var music =
+      document.getElementById(
+        "birthdayMusic"
+      );
 
-      var musicBtn = document.getElementById("musicBtn");
 
-      window.addEventListener("load", function () {
+    var musicBtn =
+      document.getElementById(
+        "musicBtn"
+      );
 
-        music
-          .play()
-          .then(function () {
 
-            musicBtn.innerHTML = "⏸ Pause Music";
-
-          })
-          .catch(function () {
-
-            musicBtn.innerHTML = "🎵 Play Birthday Music";
-
-          });
-
-      });
-
-      musicBtn.addEventListener("click", function () {
+    musicBtn.addEventListener(
+      "click",
+      function () {
 
         if (music.paused) {
 
           music
             .play()
-            .then(function () {
+            .then(
+              function () {
 
-              musicBtn.innerHTML = "⏸ Pause Music";
+                musicBtn.innerHTML =
+                  "⏸ Pause Music";
 
-            })
-            .catch(function () {
+              }
+            )
+            .catch(
+              function (error) {
 
-              musicBtn.innerHTML = "🎵 Play Birthday Music";
+                console.log(
+                  "Music Error:",
+                  error
+                );
 
-            });
+                alert(
+                  "Music load nahi ho raha. Birthday.mp3 file check karo."
+                );
+
+              }
+            );
 
         } else {
 
           music.pause();
 
-          musicBtn.innerHTML = "🎵 Play Birthday Music";
+          musicBtn.innerHTML =
+            "🎵 Play Birthday Music";
 
         }
 
-      });
+      }
+    );
 
 
-      /* =====================================
-         SURPRISE
-      ===================================== */
+    /* =====================================
+       SURPRISE
+    ===================================== */
 
-      var surpriseBtn =
-        document.getElementById("surpriseBtn");
-
-      var surprisePopup =
-        document.getElementById("surprisePopup");
-
-      var closeSurprise =
-        document.getElementById("closeSurprise");
+    var surpriseBtn =
+      document.getElementById(
+        "surpriseBtn"
+      );
 
 
-      surpriseBtn.addEventListener("click", function () {
+    var surprisePopup =
+      document.getElementById(
+        "surprisePopup"
+      );
 
-        surprisePopup.style.display = "flex";
 
-        for (var i = 0; i < 30; i++) {
+    var closeSurprise =
+      document.getElementById(
+        "closeSurprise"
+      );
 
-          setTimeout(createConfetti, i * 80);
+
+    surpriseBtn.addEventListener(
+      "click",
+      function () {
+
+        surprisePopup.style.display =
+          "flex";
+
+
+        for (
+          var i = 0;
+          i < 30;
+          i++
+        ) {
+
+          setTimeout(
+            createConfetti,
+            i * 80
+          );
 
         }
 
-      });
+      }
+    );
 
 
-      closeSurprise.addEventListener("click", function () {
+    closeSurprise.addEventListener(
+      "click",
+      function () {
 
-        surprisePopup.style.display = "none";
+        surprisePopup.style.display =
+          "none";
 
-      });
+      }
+    );
 
 
-      surprisePopup.addEventListener("click", function (event) {
+    surprisePopup.addEventListener(
+      "click",
+      function (event) {
 
-        if (event.target === surprisePopup) {
+        if (
+          event.target ===
+          surprisePopup
+        ) {
 
-          surprisePopup.style.display = "none";
+          surprisePopup.style.display =
+            "none";
 
         }
 
-      });
+      }
+    );
 
 
-      /* =====================================
-         COUNTDOWN
-      ===================================== */
+    /* =====================================
+       COUNTDOWN
+    ===================================== */
 
-      function updateCountdown() {
+    function updateCountdown() {
 
-        var birthday =
-          new Date("October 1, 2026 00:00:00").getTime();
-
-        var now =
-          new Date().getTime();
-
-        var difference =
-          birthday - now;
+      var birthday =
+        new Date(
+          "October 1, 2026 00:00:00"
+        ).getTime();
 
 
-        if (difference <= 0) {
-
-          document.querySelector(".countdown-title").innerHTML =
-            "🎉 HAPPY BIRTHDAY DEEPAK! 🎂";
+      var now =
+        new Date().getTime();
 
 
-          document.querySelector(".countdown").innerHTML = `
+      var difference =
+        birthday - now;
 
-            <div style="
-              grid-column: 1 / -1;
-              padding: 30px 15px;
-              border-radius: 25px;
-              background: rgba(255, 255, 255, 0.10);
-              color: #ffd65a;
-              font-size: 26px;
-              font-weight: bold;
-              text-align: center;
+
+      if (difference <= 0) {
+
+        document.querySelector(
+          ".countdown-title"
+        ).innerHTML =
+          "🎉 HAPPY BIRTHDAY DEEPAK! 🎂";
+
+
+        document.querySelector(
+          ".countdown"
+        ).innerHTML = `
+
+          <div style="
+            grid-column: 1 / -1;
+            padding: 30px 15px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.10);
+            color: #ffd65a;
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+          ">
+
+            🎂 Today is my birthday!❤️
+
+            <br>
+
+            <span style="
+              display:block;
+              margin-top:10px;
+              color:white;
+              font-size:18px;
             ">
 
-              🎂 Today is my birthday!❤️
+              🎉 Wishing myself a wonderful birthday! ❤️
 
-              <br>
+            </span>
 
-              <span style="
-                display:block;
-                margin-top:10px;
-                color:white;
-                font-size:18px;
-              ">
+          </div>
 
-                🎉 Wishing myself a wonderful birthday! ❤️
+        `;
 
-              </span>
-
-            </div>
-
-          `;
-
-          return;
-
-        }
-
-
-        var days =
-          Math.floor(
-            difference /
-            (1000 * 60 * 60 * 24)
-          );
-
-
-        var hours =
-          Math.floor(
-            (difference %
-              (1000 * 60 * 60 * 24)) /
-              (1000 * 60 * 60)
-          );
-
-
-        var minutes =
-          Math.floor(
-            (difference %
-              (1000 * 60 * 60)) /
-              (1000 * 60)
-          );
-
-
-        var seconds =
-          Math.floor(
-            (difference %
-              (1000 * 60)) /
-              1000
-          );
-
-
-        document.getElementById("days").innerText =
-          String(days).padStart(2, "0");
-
-
-        document.getElementById("hours").innerText =
-          String(hours).padStart(2, "0");
-
-
-        document.getElementById("minutes").innerText =
-          String(minutes).padStart(2, "0");
-
-
-        document.getElementById("seconds").innerText =
-          String(seconds).padStart(2, "0");
-
+        return;
       }
 
 
-      updateCountdown();
-
-      setInterval(updateCountdown, 1000);
-
-
-      /* =====================================
-         CONFETTI
-      ===================================== */
-
-      var emojis = [
-        "🎉",
-        "🎊",
-        "✨",
-        "🎈",
-        "🎂"
-      ];
+      var days =
+        Math.floor(
+          difference /
+          (1000 * 60 * 60 * 24)
+        );
 
 
-      function createConfetti() {
+      var hours =
+        Math.floor(
+          (
+            difference %
+            (1000 * 60 * 60 * 24)
+          ) /
+          (1000 * 60 * 60)
+        );
 
-        var confetti =
-          document.createElement("div");
 
-        confetti.className = "confetti";
+      var minutes =
+        Math.floor(
+          (
+            difference %
+            (1000 * 60 * 60)
+          ) /
+          (1000 * 60)
+        );
 
-        confetti.innerText =
-          emojis[
-            Math.floor(
-              Math.random() * emojis.length
-            )
-          ];
 
-        confetti.style.left =
-          Math.random() * 100 + "vw";
+      var seconds =
+        Math.floor(
+          (
+            difference %
+            (1000 * 60)
+          ) /
+          1000
+        );
 
-        confetti.style.animationDuration =
-          3 + Math.random() * 3 + "s";
 
-        document.body.appendChild(confetti);
+      document.getElementById(
+        "days"
+      ).innerText =
+        String(days).padStart(
+          2,
+          "0"
+        );
 
-        setTimeout(function () {
+
+      document.getElementById(
+        "hours"
+      ).innerText =
+        String(hours).padStart(
+          2,
+          "0"
+        );
+
+
+      document.getElementById(
+        "minutes"
+      ).innerText =
+        String(minutes).padStart(
+          2,
+          "0"
+        );
+
+
+      document.getElementById(
+        "seconds"
+      ).innerText =
+        String(seconds).padStart(
+          2,
+          "0"
+        );
+
+    }
+
+
+    updateCountdown();
+
+
+    setInterval(
+      updateCountdown,
+      1000
+    );
+
+
+    /* =====================================
+       CONFETTI
+    ===================================== */
+
+    var emojis = [
+      "🎉",
+      "🎊",
+      "✨",
+      "🎈",
+      "🎂"
+    ];
+
+
+    function createConfetti() {
+
+      var confetti =
+        document.createElement(
+          "div"
+        );
+
+
+      confetti.className =
+        "confetti";
+
+
+      confetti.innerText =
+        emojis[
+          Math.floor(
+            Math.random() *
+            emojis.length
+          )
+        ];
+
+
+      confetti.style.left =
+        Math.random() * 100 + "vw";
+
+
+      confetti.style.animationDuration =
+        3 + Math.random() * 3 + "s";
+
+
+      document.body.appendChild(
+        confetti
+      );
+
+
+      setTimeout(
+        function () {
 
           confetti.remove();
 
-        }, 6000);
+        },
+        6000
+      );
 
-      }
+    }
 
-      // setInterval(createConfetti, 2000);
+  </script>
 
-    </script>
-  </body>
-</html>
+</body>
+  </html>
