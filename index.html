@@ -133,7 +133,6 @@
 
       .date {
         text-align: center;
-
         color: #00f5d4;
         font-size: 25px;
         font-weight: bold;
@@ -143,65 +142,70 @@
 
       .countdown-title {
         text-align: center;
-
         color: #c5ccda;
-
         font-size: 15px;
-
         margin: 25px 0 12px;
       }
 
       .countdown {
         display: grid;
-
         grid-template-columns: repeat(4, 1fr);
-
         gap: 10px;
-
         margin-bottom: 30px;
       }
 
       .time-box {
         text-align: center;
-
         padding: 15px 5px;
-
         border-radius: 18px;
-
         background: linear-gradient(135deg, #16b0ad25, #2563eb);
-
         border: 1px solid rgba(199, 10, 10, 0.1);
       }
 
       .time-box span {
         display: block;
-
         color: #ffffff;
-
         font-size: 27px;
-
         font-weight: bold;
       }
 
       .time-box small {
         color: #cbd3df;
-
         font-size: 10px;
       }
 
       /* ================= MUSIC ================= */
 
       .music-box {
-        text-align: center;
-        margin: 5px 0 25px;
+        display: flex;
+        justify-content: center;
+        margin: 15px 0 25px;
       }
 
       #musicBtn {
         width: auto;
-        padding: 14px 25px;
-        border-radius: 30px;
-        font-size: 16px;
+        min-width: 220px;
+        padding: 14px 22px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50px;
+
         background: linear-gradient(135deg, #7b2ff7, #f107a3);
+
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+
+        box-shadow: 0 8px 25px rgba(123, 47, 247, 0.35);
+
+        transition: 0.3s;
+      }
+
+      #musicBtn:hover {
+        transform: translateY(-3px);
+      }
+
+      #musicBtn:active {
+        transform: scale(0.96);
       }
 
       /* ================= SURPRISE ================= */
@@ -286,44 +290,29 @@
 
       .card {
         padding: 32px 24px;
-
         border-radius: 30px;
-
         background: rgba(255, 255, 255, 0.11);
-
         border: 1px solid rgba(255, 255, 255, 0.1);
-
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
       }
 
       .card h2 {
         text-align: center;
-
         font-size: 30px;
-
         margin-bottom: 25px;
       }
 
       input,
       textarea {
         width: 100%;
-
         border: none;
-
         outline: none;
-
         border-radius: 17px;
-
         padding: 18px;
-
         margin-bottom: 17px;
-
         font-size: 17px;
-
         font-family: Arial, sans-serif;
-
         background: white;
-
         color: #222;
       }
 
@@ -333,7 +322,6 @@
 
       textarea {
         height: 145px;
-
         resize: none;
       }
 
@@ -346,23 +334,14 @@
 
       button {
         width: 100%;
-
         border: none;
-
         border-radius: 17px;
-
         padding: 18px;
-
         color: white;
-
         font-size: 19px;
-
         font-weight: bold;
-
         cursor: pointer;
-
         background: linear-gradient(135deg, #ff416c, #ff4b2b);
-
         box-shadow: 0 10px 25px rgba(255, 65, 108, 0.35);
       }
 
@@ -374,17 +353,11 @@
 
       .success {
         display: none;
-
         margin-top: 17px;
-
         padding: 14px;
-
         text-align: center;
-
         border-radius: 13px;
-
         background: rgba(35, 130, 85, 0.8);
-
         font-size: 15px;
       }
 
@@ -392,15 +365,10 @@
 
       .confetti {
         position: fixed;
-
         top: -30px;
-
         z-index: 1;
-
         pointer-events: none;
-
         font-size: 20px;
-
         animation: fall linear forwards;
       }
 
@@ -421,13 +389,11 @@
         overflow-x: hidden;
       }
 
-      /* Content hamesha balloons ke upar rahega */
       .container {
         position: relative;
         z-index: 2;
       }
 
-      /* Balloon background layer */
       .balloon {
         position: fixed;
         bottom: -130px;
@@ -449,7 +415,6 @@
         animation: floatBalloon linear;
       }
 
-      /* Balloon shine */
       .balloon::before {
         content: "";
 
@@ -468,7 +433,6 @@
         transform: rotate(25deg);
       }
 
-      /* Balloon string */
       .balloon::after {
         content: "";
         position: absolute;
@@ -480,7 +444,6 @@
         transform: translateX(-50%);
       }
 
-      /* Balloon movement */
       @keyframes floatBalloon {
         0% {
           transform: translateY(0) translateX(0) rotate(-5deg);
@@ -490,40 +453,8 @@
           transform: translateY(-130vh) translateX(10px) rotate(5deg);
         }
       }
-      /* music button */
-      .music-box {
-        display: flex;
-        justify-content: center;
-        margin: 15px 0 25px;
-      }
 
-      #musicBtn {
-        width: auto;
-        min-width: 220px;
-        padding: 14px 22px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 50px;
-
-        background: linear-gradient(135deg, #7b2ff7, #f107a3);
-
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-
-        box-shadow: 0 8px 25px rgba(123, 47, 247, 0.35);
-
-        transition: 0.3s;
-      }
-
-      #musicBtn:hover {
-        transform: translateY(-3px);
-      }
-
-      #musicBtn:active {
-        transform: scale(0.96);
-      }
-
-      /* surprise */
+      /* ================= TITLE IMAGES ================= */
 
       .surprise-cake img {
         width: 100px;
@@ -532,7 +463,6 @@
         display: block;
         margin: 0 auto 15px;
       }
-      /* Cake Real img */
 
       .title-icon,
       .title-cake {
@@ -554,15 +484,13 @@
 
       .footer {
         text-align: center;
-
         color: #8994a6;
-
         margin-top: 25px;
-
         font-size: 14px;
       }
 
       /* ================= MOBILE ================= */
+
       @media (max-width: 600px) {
         .container {
           padding: 15px 12px 30px;
@@ -652,23 +580,32 @@
 
   <body>
     <main class="container">
+
       <!-- ================= HERO ================= -->
 
       <section class="hero">
         <div class="profile-box">
           <img src="./images/Deepak Dp.jpeg" alt="Deepak" />
         </div>
+
         <h1>
           <img src="./images/party.png" alt="Party" class="title-icon" />
           It's My Birthday!
-          <img src="./images/cake.png" alt="Birthday Cake" class="title-cake" />
+          <img
+            src="./images/cake.png"
+            alt="Birthday Cake"
+            class="title-cake"
+          />
         </h1>
 
         <div class="date">01 October 2026 🎊</div>
       </section>
 
+      <!-- ================= SURPRISE POPUP ================= -->
+
       <div class="surprise-popup" id="surprisePopup">
         <div class="surprise-content">
+
           <span class="close" id="closeSurprise">×</span>
 
           <div class="surprise-cake">
@@ -683,6 +620,7 @@
             Thank you for being here and making my birthday even more special!
             ❤️✨
           </p>
+
         </div>
       </div>
 
@@ -691,6 +629,7 @@
       <div class="countdown-title">Birthday Countdown ⏳</div>
 
       <div class="countdown">
+
         <div class="time-box">
           <span id="days">00</span>
           <small>DAYS</small>
@@ -711,21 +650,33 @@
           <small>SECONDS</small>
         </div>
 
-        <div class="music-box">
-          <button id="musicBtn" type="button">🎵 Play Birthday Music</button>
+      </div>
 
-          <audio id="birthdayMusic" loop>
-            <source src="./birthday song/birthday.mp3" type="audio/mpeg" />
-          </audio>
-        </div>
+      <!-- ================= MUSIC ================= -->
+
+      <div class="music-box">
+
+        <button id="musicBtn" type="button">
+          🎵 Play Birthday Music
+        </button>
+
+        <audio id="birthdayMusic" loop playsinline>
+          <source
+            src="./birthday song/Birthday.mp3"
+            type="audio/mpeg"
+          />
+        </audio>
+
       </div>
 
       <!-- ================= WISH FORM ================= -->
 
       <section class="card">
+
         <h2>💌 Send Me a Birthday Wish</h2>
 
         <form id="birthdayForm">
+
           <input
             type="text"
             id="name"
@@ -740,32 +691,47 @@
           ></textarea>
 
           <!-- Surprise Button -->
+
           <div class="surprise-box">
+
             <button id="surpriseBtn" type="button">
               🎁 Click for a Surprise
             </button>
+
           </div>
 
           <!-- Send Wish Button -->
-          <button type="submit">🎉 Send Birthday Wish</button>
+
+          <button type="submit">
+            🎉 Send Birthday Wish
+          </button>
+
         </form>
 
-        <div class="success" id="success">❤️ Opening WhatsApp...</div>
+        <div class="success" id="success">
+          ❤️ Opening WhatsApp...
+        </div>
+
       </section>
 
-      <div class="footer">Made with ❤️ by Deepak</div>
+      <div class="footer">
+        Made with ❤️ by Deepak
+      </div>
+
     </main>
 
     <script>
+
       /* =====================================
-       WHATSAPP
-    ===================================== */
+         WHATSAPP
+      ===================================== */
 
       var whatsappNumber = "917644832949";
 
       var form = document.getElementById("birthdayForm");
 
       form.addEventListener("submit", function (event) {
+
         event.preventDefault();
 
         var name = document.getElementById("name").value.trim();
@@ -773,9 +739,11 @@
         var message = document.getElementById("message").value.trim();
 
         if (name === "" || message === "") {
+
           alert("Please enter your name and message.");
 
           return;
+
         }
 
         var text =
@@ -797,9 +765,13 @@
         document.getElementById("success").style.display = "block";
 
         setTimeout(function () {
-          window.location.href = window.open(whatsappURL, "_blank");
+
+          window.location.href = whatsappURL;
+
         }, 500);
+
       });
+
 
       /* ================= FLOATING BALLOONS ================= */
 
@@ -808,10 +780,11 @@
         "#ffd65a",
         "#7b2ff7",
         "#00c9a7",
-        "#ff7eb3",
+        "#ff7eb3"
       ];
 
       function createBalloon() {
+
         var balloon = document.createElement("div");
 
         balloon.className = "balloon";
@@ -819,181 +792,290 @@
         balloon.style.left = Math.random() * 90 + "vw";
 
         balloon.style.background =
-          balloonColors[Math.floor(Math.random() * balloonColors.length)];
+          balloonColors[
+            Math.floor(Math.random() * balloonColors.length)
+          ];
 
-        balloon.style.animationDuration = 8 + Math.random() * 6 + "s";
+        balloon.style.animationDuration =
+          8 + Math.random() * 6 + "s";
 
         document.body.appendChild(balloon);
 
         setTimeout(function () {
+
           balloon.remove();
+
         }, 15000);
+
       }
 
-      /* Website open hote hi balloons */
       createBalloon();
 
       setTimeout(function () {
+
         createBalloon();
+
       }, 800);
 
-      /* Uske baad naye balloons aate rahenge */
       setInterval(createBalloon, 1800);
+
+
       /* =====================================
-                   MUSIC
-===================================== */
+         MUSIC
+      ===================================== */
 
       var music = document.getElementById("birthdayMusic");
+
       var musicBtn = document.getElementById("musicBtn");
 
       window.addEventListener("load", function () {
+
         music
           .play()
           .then(function () {
+
             musicBtn.innerHTML = "⏸ Pause Music";
+
           })
           .catch(function () {
+
             musicBtn.innerHTML = "🎵 Play Birthday Music";
+
           });
+
       });
 
       musicBtn.addEventListener("click", function () {
-        if (music.paused) {
-          music.play();
-          musicBtn.innerHTML = "⏸ Pause Music";
-        } else {
-          music.pause();
-          musicBtn.innerHTML = "🎵 Play Birthday Music";
-        }
-      });
-      /* =====================================
-   SURPRISE
-===================================== */
 
-      var surpriseBtn = document.getElementById("surpriseBtn");
-      var surprisePopup = document.getElementById("surprisePopup");
-      var closeSurprise = document.getElementById("closeSurprise");
+        if (music.paused) {
+
+          music
+            .play()
+            .then(function () {
+
+              musicBtn.innerHTML = "⏸ Pause Music";
+
+            })
+            .catch(function () {
+
+              musicBtn.innerHTML = "🎵 Play Birthday Music";
+
+            });
+
+        } else {
+
+          music.pause();
+
+          musicBtn.innerHTML = "🎵 Play Birthday Music";
+
+        }
+
+      });
+
+
+      /* =====================================
+         SURPRISE
+      ===================================== */
+
+      var surpriseBtn =
+        document.getElementById("surpriseBtn");
+
+      var surprisePopup =
+        document.getElementById("surprisePopup");
+
+      var closeSurprise =
+        document.getElementById("closeSurprise");
+
 
       surpriseBtn.addEventListener("click", function () {
+
         surprisePopup.style.display = "flex";
 
         for (var i = 0; i < 30; i++) {
+
           setTimeout(createConfetti, i * 80);
+
         }
+
       });
+
 
       closeSurprise.addEventListener("click", function () {
+
         surprisePopup.style.display = "none";
+
       });
+
 
       surprisePopup.addEventListener("click", function (event) {
+
         if (event.target === surprisePopup) {
+
           surprisePopup.style.display = "none";
+
         }
+
       });
 
+
       /* =====================================
-       COUNTDOWN
-    ===================================== */
+         COUNTDOWN
+      ===================================== */
 
       function updateCountdown() {
-        var birthday = new Date("October 1, 2026 00:00:00").getTime();
 
-        var now = new Date().getTime();
+        var birthday =
+          new Date("October 1, 2026 00:00:00").getTime();
 
-        var difference = birthday - now;
+        var now =
+          new Date().getTime();
+
+        var difference =
+          birthday - now;
+
 
         if (difference <= 0) {
+
           document.querySelector(".countdown-title").innerHTML =
             "🎉 HAPPY BIRTHDAY DEEPAK! 🎂";
 
+
           document.querySelector(".countdown").innerHTML = `
-    <div style="
-      grid-column: 1 / -1;
-      padding: 30px 15px;
-      border-radius: 25px;
-      background: rgba(255, 255, 255, 0.10);
-      color: #ffd65a;
-      font-size: 26px;
-      font-weight: bold;
-      text-align: center;
-    ">
-       🎂 Today is my birthday!❤️
-      <br>
-      <span style="
-        display:block;
-        margin-top:10px;
-        color:white;
-        font-size:18px;
-      ">
-       🎉 Wishing myself a wonderful birthday! ❤️
-      </span>
-    </div>
-    `;
+
+            <div style="
+              grid-column: 1 / -1;
+              padding: 30px 15px;
+              border-radius: 25px;
+              background: rgba(255, 255, 255, 0.10);
+              color: #ffd65a;
+              font-size: 26px;
+              font-weight: bold;
+              text-align: center;
+            ">
+
+              🎂 Today is my birthday!❤️
+
+              <br>
+
+              <span style="
+                display:block;
+                margin-top:10px;
+                color:white;
+                font-size:18px;
+              ">
+
+                🎉 Wishing myself a wonderful birthday! ❤️
+
+              </span>
+
+            </div>
+
+          `;
 
           return;
+
         }
 
-        var days = Math.floor(difference / (1000 * 60 * 60 * 24));
 
-        var hours = Math.floor(
-          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-        );
+        var days =
+          Math.floor(
+            difference /
+            (1000 * 60 * 60 * 24)
+          );
 
-        var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
 
-        var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        var hours =
+          Math.floor(
+            (difference %
+              (1000 * 60 * 60 * 24)) /
+              (1000 * 60 * 60)
+          );
 
-        document.getElementById("days").innerText = String(days).padStart(
-          2,
-          "0",
-        );
 
-        document.getElementById("hours").innerText = String(hours).padStart(
-          2,
-          "0",
-        );
+        var minutes =
+          Math.floor(
+            (difference %
+              (1000 * 60 * 60)) /
+              (1000 * 60)
+          );
 
-        document.getElementById("minutes").innerText = String(minutes).padStart(
-          2,
-          "0",
-        );
 
-        document.getElementById("seconds").innerText = String(seconds).padStart(
-          2,
-          "0",
-        );
+        var seconds =
+          Math.floor(
+            (difference %
+              (1000 * 60)) /
+              1000
+          );
+
+
+        document.getElementById("days").innerText =
+          String(days).padStart(2, "0");
+
+
+        document.getElementById("hours").innerText =
+          String(hours).padStart(2, "0");
+
+
+        document.getElementById("minutes").innerText =
+          String(minutes).padStart(2, "0");
+
+
+        document.getElementById("seconds").innerText =
+          String(seconds).padStart(2, "0");
+
       }
+
 
       updateCountdown();
 
       setInterval(updateCountdown, 1000);
 
-      /* =====================================
-       CONFETTI
-    ===================================== */
 
-      var emojis = ["🎉", "🎊", "✨", "🎈", "🎂"];
+      /* =====================================
+         CONFETTI
+      ===================================== */
+
+      var emojis = [
+        "🎉",
+        "🎊",
+        "✨",
+        "🎈",
+        "🎂"
+      ];
+
 
       function createConfetti() {
-        var confetti = document.createElement("div");
+
+        var confetti =
+          document.createElement("div");
 
         confetti.className = "confetti";
 
-        confetti.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        confetti.innerText =
+          emojis[
+            Math.floor(
+              Math.random() * emojis.length
+            )
+          ];
 
-        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.left =
+          Math.random() * 100 + "vw";
 
-        confetti.style.animationDuration = 3 + Math.random() * 3 + "s";
+        confetti.style.animationDuration =
+          3 + Math.random() * 3 + "s";
 
         document.body.appendChild(confetti);
 
         setTimeout(function () {
+
           confetti.remove();
+
         }, 6000);
+
       }
 
-      //   setInterval(createConfetti, 2000);
+      // setInterval(createConfetti, 2000);
+
     </script>
   </body>
 </html>
